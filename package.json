@@ -2,11 +2,15 @@
   "name": "simple-cms",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "node main.js",
+    "build": "node app/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
 }

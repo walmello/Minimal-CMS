@@ -1,96 +1,79 @@
 backend:
   name: git-gateway
   branch: main
-
-media_folder: "src/uploads"
-public_folder: "https://the-inflection-podcast.netlify.app/uploads" # change here to your netlify original sitename. 
-
+media_folder: public/uploads
+public_folder: https://the-inflection-podcast.netlify.app/uploads
 collections:
-  - name: "events"
-    label: "Events"
+  - name: events
+    label: Events
     editor:
       preview: false
-    folder: "src/events/entries"
+    folder: public/events/entries
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     format: json
     fields:
       - name: title
         label: Title
         widget: string
-
       - label: Featured
         name: featured
         widget: boolean
         default: false
-
       - name: description
         label: Description
         widget: text
-    
       - label: Cover Image
         name: image
         widget: image
         required: false
-
       - name: location
         label: Location
         widget: string
-
       - name: dateTime
         label: Datetime
-        widget: datetime      
-
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
+        widget: datetime
+  - name: blog
+    label: Blog
     editor:
-      preview: false # Disables the "eye icon"
-    folder: "src/blog/entries" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    format: "json" # Convert to JSON for better use of the elements
-    fields: # The fields for each document, usually in front matter
+      preview: false
+    folder: public/blog/entries
+    create: true
+    slug: '{{slug}}'
+    format: json
+    fields:
       - label: Title
         name: title
         widget: string
-
       - label: Description
         name: description
         widget: text
-
       - label: Tags
         name: tags
         widget: list
         allow_add: true
         required: false
-
       - label: Featured
         name: featured
         widget: boolean
         default: false
-
       - label: Options
         name: options
         widget: object
         collapsed: true
         fields:
-          
           - label: Publish Date
             name: date
             widget: datetime
-
           - label: Order
             name: order
             widget: number
             value_type: int
             default: 0
-
-
       - label: Cover Image
         name: image
         widget: image
         required: false
-
       - label: Body
         name: body
         widget: markdown
