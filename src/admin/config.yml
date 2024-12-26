@@ -1,14 +1,14 @@
 backend:
   name: git-gateway
   branch: main
-media_folder: public/uploads
+media_folder: src/uploads
 public_folder: https://the-inflection-podcast.netlify.app/uploads
 collections:
   - name: events
     label: Events
     editor:
       preview: false
-    folder: public/events/entries
+    folder: src/events/entries
     create: true
     slug: '{{slug}}'
     format: json
@@ -37,7 +37,7 @@ collections:
     label: Blog
     editor:
       preview: false
-    folder: public/blog/entries
+    folder: src/blog/entries
     create: true
     slug: '{{slug}}'
     format: json
