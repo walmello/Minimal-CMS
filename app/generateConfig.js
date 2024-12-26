@@ -6,7 +6,7 @@ const config = {
     "name": "git-gateway",
     "branch": "main"
   },
-  "media_folder": "public/uploads",
+  "media_folder": "src/uploads",
   "public_folder": "https://the-inflection-podcast.netlify.app/uploads",
   "collections": [
     {
@@ -15,7 +15,7 @@ const config = {
       "editor": {
         "preview": false
       },
-      "folder": "public/events/entries",
+      "folder": "src/events/entries",
       "create": true,
       "slug": "{{slug}}",
       "format": "json",
@@ -60,7 +60,7 @@ const config = {
       "editor": {
         "preview": false
       },
-      "folder": "public/blog/entries",
+      "folder": "src/blog/entries",
       "create": true,
       "slug": "{{slug}}",
       "format": "json",
@@ -124,4 +124,4 @@ const config = {
   ]
 }
 
-fs.writeFileSync('public/admin/config.yml',yaml.dump(config))
+fs.writeFileSync('src/admin/config.yml',yaml.dump(config))
