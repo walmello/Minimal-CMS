@@ -1,6 +1,7 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
 
+
 const config = {
   "backend": {
     "name": "git-gateway",
