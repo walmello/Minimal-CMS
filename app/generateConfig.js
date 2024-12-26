@@ -1,128 +1,17 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
+import config from '../config'
+import blog from './collections/blog.js'
+import events from './collections/events.js'
 
-
-const config = {
+const CMSconfig = {
   "backend": {
     "name": "git-gateway",
     "branch": "main"
   },
   "media_folder": "src/uploads",
-  "public_folder": "https://the-inflection-podcast.netlify.app/uploads",
-  "collections": [
-    {
-      "name": "events",
-      "label": "Events",
-      "editor": {
-        "preview": false
-      },
-      "folder": "src/events/entries",
-      "create": true,
-      "slug": "{{slug}}",
-      "format": "json",
-      "fields": [
-        {
-          "name": "title",
-          "label": "Title",
-          "widget": "string"
-        },
-        {
-          "label": "Featured",
-          "name": "featured",
-          "widget": "boolean",
-          "default": false
-        },
-        {
-          "name": "description",
-          "label": "Description",
-          "widget": "text"
-        },
-        {
-          "label": "Cover Image",
-          "name": "image",
-          "widget": "image",
-          "required": false
-        },
-        {
-          "name": "location",
-          "label": "Location",
-          "widget": "string"
-        },
-        {
-          "name": "dateTime",
-          "label": "Datetime",
-          "widget": "datetime"
-        }
-      ]
-    },
-    {
-      "name": "blog",
-      "label": "Blog",
-      "editor": {
-        "preview": false
-      },
-      "folder": "src/blog/entries",
-      "create": true,
-      "slug": "{{slug}}",
-      "format": "json",
-      "fields": [
-        {
-          "label": "Title",
-          "name": "title",
-          "widget": "string"
-        },
-        {
-          "label": "Description",
-          "name": "description",
-          "widget": "text"
-        },
-        {
-          "label": "Tags",
-          "name": "tags",
-          "widget": "list",
-          "allow_add": true,
-          "required": false
-        },
-        {
-          "label": "Featured",
-          "name": "featured",
-          "widget": "boolean",
-          "default": false
-        },
-        {
-          "label": "Options",
-          "name": "options",
-          "widget": "object",
-          "collapsed": true,
-          "fields": [
-            {
-              "label": "Publish Date",
-              "name": "date",
-              "widget": "datetime"
-            },
-            {
-              "label": "Order",
-              "name": "order",
-              "widget": "number",
-              "value_type": "int",
-              "default": 0
-            }
-          ]
-        },
-        {
-          "label": "Cover Image",
-          "name": "image",
-          "widget": "image",
-          "required": false
-        },
-        {
-          "label": "Body",
-          "name": "body",
-          "widget": "markdown"
-        }
-      ]
-    }
-  ]
+  "public_folder":  config.url + "/uploads",
+  "collections": [blog, events]
 }
 
-fs.writeFileSync('src/admin/config.yml',yaml.dump(config))
+fs.writeFileSync('src/admin/config.yml',yaml.dump(CMSconfig))

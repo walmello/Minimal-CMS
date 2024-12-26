@@ -1,7 +1,6 @@
 import fs from 'fs';
 //import parser from "./tree-parser/index.js";
 
-const base = "https://minimal-cms-tests.netlify.app"
 const entries = fs.readdirSync('./src').filter(entry => {
   return !['admin', 'index.html'].includes(entry)
 })
