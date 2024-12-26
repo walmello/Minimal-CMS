@@ -1,6 +1,6 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
-import config from '../config'
+import config from '../config.js'
 import blog from './collections/blog.js'
 import events from './collections/events.js'
 
