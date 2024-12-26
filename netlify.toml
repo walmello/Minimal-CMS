@@ -1,2 +1,3 @@
-base = "src/"
-command = "npm run build"
+[build]
+  base = "src/"
+  command = "npm run build"
